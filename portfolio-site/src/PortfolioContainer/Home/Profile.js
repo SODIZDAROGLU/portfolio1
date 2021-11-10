@@ -1,9 +1,10 @@
 import React from "react";
 import Typical from "react-typical";
+import './Profile.css';
 
 export default function Profile() {
   return (
-    <div className="Profile-container">
+    <div className="profile-container">
       <div className="profile-parent">
         <div className="profile-details">
           <div className="colz">
@@ -28,7 +29,7 @@ export default function Profile() {
           <div className="profile-details-name">
             <span className="primary-text">
               {" "}
-              Hello, I'M <span className="highlighted-text">OGUZ</span>
+              Hello, I'M <span className="highlighted-text">SUKRU OGUZ DIZDAROGLU</span>
             </span>
           </div>
           <div className="profile-details-role">
@@ -69,7 +70,7 @@ export default function Profile() {
           </div>
         </div>
         <div className="profile-picture">
-          <div className="profiel-picture-backround"></div>
+          <div className="profile-picture-backround"></div>
         </div>
       </div>
     </div>
