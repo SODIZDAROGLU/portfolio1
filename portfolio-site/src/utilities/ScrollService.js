@@ -1,25 +1,32 @@
 import { TOTAL_SCREENS } from "./commonUtils";
-import {Subject} from 'rxjs';
+import { Subject } from "rxjs";
 
 export default class ScrollService{
-    static scrollHandler = new ScrollService();
+    
+          /* SINGLETON CLASS INSTANCE */
+  static scrollHandler = new ScrollService();
 
-    static currentScreenBroadCaster = new Subject()
-    static currentScreenFadeIn = new Subject()
+  /* Lets instantiate the subject BROADCASTERS */
+  static currentScreenBroadcaster = new Subject();
+  static currentScreenFadeIn = new Subject();
 
-    constructor(){
-        window.addEventListener('scroll',this.checkCurrentScreenUnderViewport);
+  //lets have a constructor here and add the scroll event to window
+  constructor() {
+    /* ADD SCROLL EVENT TO WINDOW */
+    window.addEventListener("scroll", this.checkCurrentScreenUnderViewport);
     }
 
     scrollToHireMe = () =>{
-        let contactMeScreen = document.getElementById("Contact Me")
+        let contactMeScreen = document.getElementById("ContactMe")
         if(!contactMeScreen) return;
+
         contactMeScreen.scrollIntoView({behavior:"smooth"})
     }
 
     scrollToHome = () =>{
         let homeScreen = document.getElementById("Home")
         if(!homeScreen) return;
+
         homeScreen.scrollIntoView({behavior:"smooth"})
     }
 
@@ -46,31 +53,33 @@ export default class ScrollService{
     }
 
     checkCurrentScreenUnderViewport = (event) =>{
-        if(!event || Object.keys(event).length < 1)
-        return;
-        for(let screen of TOTAL_SCREENS){
-            let screenFromDOM = document.getElementById(screen.screen_name);
-            if(!screenFromDOM)
-            continue;
+        
+        if (!event || Object.keys(event).length < 1) return;
 
-            let fullyVisible = this.isElementInView(screenFromDOM, "complete");
-            let partiallyVisible = this.isElementInView(screenFromDOM, "partial")
-
-            if (fullyVisible || partiallyVisible) {
-                if (partiallyVisible && !screen.alreadyRendered) {
-                  //BROADCAST FADE IN EFFECT
-                  ScrollService.currentScreenFadeIn.next({
-                    fadeInScreen: screen.screen_name,
-                  });
-                  screen["alreadyRendered"] = true;
-                  break;
+        for (let screen of TOTAL_SCREENS) {
+          let screenFromDOM = document.getElementById(screen.screen_name);
+          if (!screenFromDOM) continue;
+    
+          let fullyVisible = this.isElementInView(screenFromDOM, "complete");
+          let partiallyVisible = this.isElementInView(screenFromDOM, "partial");
+    
+          if (fullyVisible || partiallyVisible) {
+            if (partiallyVisible && !screen.alreadyRendered) {
+              //BROADCAST FADE IN EFFECT
+              ScrollService.currentScreenFadeIn.next({
+                fadeInScreen: screen.screen_name,
+              });
+              screen["alreadyRendered"] = true;
+              break;
             }
-        }
-            if(fullyVisible){
-                ScrollService.currentScreenBroadCaster.next({
-                    screenInView: screen.screen_name
-                });
-                break;
+    
+            if (fullyVisible) {
+              // BROADCAST SCREEN NAME
+              ScrollService.currentScreenBroadcaster.next({
+                screenInView: screen.screen_name,
+              });
+              break;
+             }
             }
         }
     }
