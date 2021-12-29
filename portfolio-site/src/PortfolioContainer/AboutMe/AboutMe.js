@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import ScreenHeading from '../../utilities/ScreenHeading/ScreenHeading'
 import ScrollService from '../../utilities/ScrollService'
 import Animations from '../../utilities/Animations'
@@ -15,13 +15,13 @@ export default function AboutMe(props) {
 
     const SCREEN_CONSTSANTS = {
         description:
-          "Full stack web and mobile developer with background knowledge of MERN stacks with redux, along with a knack of building applications with utmost efficiency. Strong professional with a BSC willing to be an asset for an organization.",
+        "I've chosen to move to development side of IT into being more directly involved with technology. I enrolled in Georgia Tech's Software Development Boot Camp..",
         highlights: {
           bullets: [
             "Full Stack web and mobile development",
             "Interactive Front End as per the design",
-            "React and React Native",
-            "Redux for State Mnanagement",
+            
+           
             "Building REST API",
             "Managing database",
           ],

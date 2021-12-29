@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from 'react'
 import ScreenHeading from "../../utilities/ScreenHeading/ScreenHeading";
 import ScrollService from "../../utilities/ScrollService";
 import Animations from "../../utilities/Animations";
+import './Resume.css'
 
 
 export default function Resume(props) {
@@ -56,79 +57,84 @@ const resumeBullets = [
 const programmingSkillsDetails = [
   { skill: "JavaScript", ratingPercentage: 85 },
   { skill: "React JS", ratingPercentage: 85 },
-  { skill: "React Native", ratingPercentage: 85 },
+  { skill: "SQL", ratingPercentage: 50 },
   { skill: "Express JS", ratingPercentage: 89 },
   { skill: "Node JS", ratingPercentage: 89 },
   { skill: "Mongo Db", ratingPercentage: 70 },
-  { skill: "Core Java", ratingPercentage: 80 },
+  { skill: "C#", ratingPercentage: 80 },
   { skill: "HTML", ratingPercentage: 80 },
   { skill: "CSS", ratingPercentage: 80 },
 ];
 
 const projectsDetails = [
     {
-      title: "Personal Portfolio Website",
-      duration: { fromDate: "2020", toDate: "2021" },
+      title: "MyFace",
+      duration: { },
       description:
-        "A Personal Portfolio website to showcase all my details and projects at one place.",
-      subHeading: "Technologies Used: React JS, Bootsrap",
+        "Instagram clone.",
+      subHeading: "Technologies Used:  React, Express, Node.js & MongoDB ",
     },
     {
-      title: "Mobile E-shop ",
-      duration: { fromDate: "2020", toDate: "2021" },
+      title: "WeatherApp ",
+      duration: {  },
       description:
-        "An ecommerce application designed to sell products online wth payment system integration",
+        " One page website where the user can input a city to get today's weather and a 5-day weather forecast using the OpenWeather API.",
       subHeading:
-        "Technologies Used:  React Native, Mongo DB, Express Js, Node Js, Redux.",
+        "Technologies Used:  JavaScript",
     },
     {
-      title: "Ecommerce Website ",
-      duration: { fromDate: "2020", toDate: "2021" },
+      title: "Newsletter-SignUp ",
+      duration: {  },
       description:
-        "Online ecommerce website for showcasing and selling products onlne with payment system integration, both Paypal and Stripe",
+       "This app allows you to collect user’s email addresses, and save it to your own database on Mailchimp.",
       subHeading:
-        "Technologies Used: Mongo DB, Epress Js, React Js, Node JS, Redux, Bootstrap.",
+        "Technologies Used: APIs, Express, Nodejs ",
     },
   ];
 
   const resumeDetails = [
     <div className="resume-screen-container" key="education">
       <ResumeHeading
-        heading={"University of Legon Accra, Ghana"}
-        subHeading={"BACHELOR OF SCIENCE INFORMATION TECHNOLOGY"}
-        fromDate={"2014"}
-        toDate={"2018"}
+        heading={"Georgia Instute of Technology"}
+        subHeading={"FULL STACK WEB DEVELOPER"}
+        fromDate={"2020"}
+        toDate={"2021"}
       />
 
       <ResumeHeading
-        heading={"National Youth Service Corps"}
-        subHeading={"Ministry Of Science And Technogy. Uyo Akwa Ibom State"}
-        fromDate={"2019"}
-        toDate={"2020"}
+        heading={"Georgian Technical University"}
+        subHeading={"BIOMEDICAL ENGINEER"}
+        fromDate={"1991"}
+        toDate={"1996"}
       />
-      <ResumeHeading
+      {/* <ResumeHeading
         heading={"High School "}
         subHeading={"Command Secondary School Mbiri"}
         fromDate={"2007"}
         toDate={"2012"}
-      />
+      /> */}
     </div>,
      /* WORK EXPERIENCE */
      <div className="resume-screen-container" key="work-experience">
      <div className="experience-container">
        <ResumeHeading
-         heading={"Ehizeex Technoloy"}
+         heading={"MyLearnMate"}
          subHeading={"FULL STACK DEVELOPER INTERN"}
-         fromDate={"2021"}
-         toDate={"Present"}
+         fromDate={"2020"}
+         toDate={"2021"}
        />
        <div className="experience-description">
          <span className="resume-description-text">
-           Currently working as MERN stack web and mobile developer and also an
-           online instructor on udemy.
+         Develops UI using HTML, JavaScript, CSS, and Front-End Web Frameworks such as React JS,NodeJS
          </span>
        </div>
-       <div className="experience-description">
+       <ResumeHeading
+         heading={"Young Consulting"}
+         subHeading={"SOFTWARE DEVELOPER"}
+         fromDate={"2021"}
+         toDate={"PRESENT"}
+       />
+       {/* <div className="experience-description">
          <span className="resume-description-text">
            - Developed an ecommerce website for client with the dashboard for
            managing the products, managing reviews, users, payment etc. .
@@ -144,7 +150,7 @@ const projectsDetails = [
            designs.
          </span>
          <br />
-       </div>
+       </div> */}
      </div>
    </div>,
 
@@ -182,20 +188,20 @@ const projectsDetails = [
    </div>,
 
    /* Interests */
-   <div className="resume-screen-container" key="interests">
-     <ResumeHeading
-       heading="Teaching"
-       description="Apart from being a tech enthusiast and a code writer, i also love to teach people what i know simply because i believe in sharing."
-     />
-     <ResumeHeading
-       heading="Music"
-       description="Listening to soothing music is something i can never compromise with, skimming through Spotify's pop songs charts is at times the best stress reliever that i can get my hands on."
-     />
-     <ResumeHeading
-       heading="Competitive Gaming"
-       description="I like to challenge my reflexes a lot while competing in football games, pushing the rank and having interactive gaming sessions excites me the most."
-     />
-   </div>,
+  //  <div className="resume-screen-container" key="interests">
+  //    <ResumeHeading
+  //      heading="Teaching"
+  //      description="Apart from being a tech enthusiast and a code writer, i also love to teach people what i know simply because i believe in sharing."
+  //    />
+  //    <ResumeHeading
+  //      heading="Music"
+  //      description="Listening to soothing music is something i can never compromise with, skimming through Spotify's pop songs charts is at times the best stress reliever that i can get my hands on."
+  //    />
+  //    <ResumeHeading
+  //      heading="Competitive Gaming"
+  //      description="I like to challenge my reflexes a lot while competing in football games, pushing the rank and having interactive gaming sessions excites me the most."
+  //    />
+  //  </div>,
  ];
 
  const handleCarousal = (index) => {
@@ -238,7 +244,7 @@ const projectsDetails = [
   }, [fadeInSubscription]);
 
     return (
-        <div className="resume-container screen-container" id={props.id || ""}>
+        <div className="resume-container screen-container " id={props.id || ""}>
       <div className="resume-content">
         <ScreenHeading title={"Resume"} subHeading={"My formal Bio Details"} />
         <div className="resume-card">

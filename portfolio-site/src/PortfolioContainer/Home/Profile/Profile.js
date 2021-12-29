@@ -9,21 +9,21 @@ export default function Profile() {
         <div className="profile-details">
           <div className="colz">
             <div className="colz-icon">
-              <a href="#">
+              <a href="https://www.linkedin.com/in/sukru-oguz-dizdaroglu-05aaba198/">
                 <i className="fa fa-linkedin-square"></i>
               </a>
-              <a href="#">
+              {/* <a href="#">
                 <i className="fa fa-google-plus-square"></i>
-              </a>
-              <a href="#">
+              </a> */}
+              <a href="https://github.com/SODIZDAROGLU">
                 <i className="fa fa-github-square"></i>
               </a>
-              <a href="#">
+              {/* <a href="#">
                 <i className="fa fa-youtube-square"></i>
-              </a>
-              <a href="#">
+              </a> */}
+              {/* <a href="#">
                 <i className="fa fa-twitter"></i>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className="profile-details-name">
